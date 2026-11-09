@@ -1,193 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyHub - Asli GitHub Jaisa</title>
+<title>GitHub MAX - Where The World Builds Software</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial}
 body{background:#0d1117;color:#e6edf3}
 a{color:#58a6ff;cursor:pointer;text-decoration:none}
-header{background:#010409;padding:10px 16px;display:flex;gap:12px;align-items:center;position:sticky;top:0;z-index:10}
-header .logo{background:white;color:black;width:32px;height:32px;border-radius:50%;text-align:center;line-height:32px;font-weight:900;font-size:20px}
-header input{flex:1;max-width:420px;background:#0d1117;border:1px solid #30363d;color:white;padding:7px 10px;border-radius:6px}
-header button{background:#21262d;color:white;border:1px solid #30363d;padding:6px 12px;border-radius:6px;cursor:pointer}
-header button.green{background:#238636;border:none}
-.container{max-width:1100px;margin:auto;padding:16px}
-.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:14px}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:#30363d;border-radius:10px}
+/* TOP BAR - ASLI GITHUB */
+.top{background:#010409;border-bottom:1px solid #30363d;padding:10px 16px;display:flex;gap:14px;align-items:center;position:sticky;top:0;z-index:99}
+.logo{width:34px;height:34px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:black;font-weight:900;box-shadow:0 0 18px #58a6ff}
+.search{flex:1;max-width:520px;display:flex;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:6px 10px;gap:8px;align-items:center}
+.search input{background:transparent;border:none;outline:none;color:white;width:100%;font-size:14px}
+.search kbd{background:#21262d;border:1px solid #30363d;border-radius:4px;padding:1px 6px;font-size:11px;color:#8b949e}
+.menu{display:flex;gap:18px;font-size:14px;font-weight:600}
+.menu span{cursor:pointer}.menu span:hover{color:#58a6ff}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f78166,#a371f7,#58a6ff);display:flex;align-items:center;justify-content:center;font-weight:800;border:2px solid #fff}
+.btn-g{background:linear-gradient(180deg,#2ea043,#238636);color:white;border:none;padding:7px 14px;border-radius:6px;font-weight:600;cursor:pointer}
+.btn-w{background:#21262d;border:1px solid #30363d;color:white;padding:7px 12px;border-radius:6px;cursor:pointer}
+/* HERO MAX */
+.hero{background:radial-gradient(600px 300px at 15% 0%,rgba(31,111,235,.35),transparent),radial-gradient(600px 300px at 85% 0%,rgba(163,113,247,.30),transparent),#010409;padding:48px 16px 30px;text-align:center;border-bottom:1px solid #30363d}
+.hero h1{font-size:52px;line-height:1.05;letter-spacing:-1px}
+.hero h1 span{background:linear-gradient(90deg,#fff,#58a6ff,#a371f7,#f778ba);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#8b949e;max-width:650px;margin:14px auto;font-size:16px}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.terminal{max-width:820px;margin:26px auto;background:#0d1117;border:1px solid #30363d;border-radius:12px;text-align:left;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.6)}
+.terminal-head{background:#161b22;padding:10px 14px;display:flex;gap:6px;align-items:center;border-bottom:1px solid #30363d}
+.dot{width:12px;height:12px;border-radius:50%}
+.terminal-body{padding:16px;font-family:monospace;font-size:14px;line-height:1.8;color:#79c0ff}
+.terminal-body b{color:#d2a8ff}.terminal-body i{color:#7ee787;font-style:normal}
+/* LAYOUT */
+.wrap{max-width:1280px;margin:auto;padding:16px;display:flex;gap:16px}
+.sidebar{width:310px}
+.main{flex:1}
+.card{background:#0d1117;border:1px solid #30363d;border-radius:10px;padding:16px;margin-bottom:14px}
+.card:hover{border-color:#3d444d}
+.profile{border:1px solid #30363d;border-radius:12px;padding:18px;background:linear-gradient(180deg,#161b22,#0d1117);text-align:center}
+.profile img{width:92px;height:92px;border-radius:50%;border:3px solid #f78166;object-fit:cover}
+.repo{border:1px solid #30363d;border-radius:10px;padding:14px;margin-bottom:10px;background:#0d1117;transition:.2s}
+.repo:hover{border-color:#58a6ff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.repo b{color:#58a6ff;font-size:16px;cursor:pointer}
+.repo p{color:#8b949e;font-size:13px;margin:6px 0}
+.meta{display:flex;gap:14px;font-size:12px;color:#8b949e;flex-wrap:wrap}
+.dotlang{width:11px;height:11px;border-radius:50%;display:inline-block}
+.tabs{display:flex;gap:22px;border-bottom:1px solid #30363d;padding-bottom:9px;margin:14px 0;overflow:auto}
+.tabs span{cursor:pointer;font-weight:600;white-space:nowrap;padding-bottom:6px}
+.tabs span.active{border-bottom:2px solid #f78166}
 input,textarea,select{width:100%;padding:10px;margin:7px 0;background:#0d1117;border:1px solid #30363d;color:white;border-radius:6px}
-.btn{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;background:#238636;color:white;font-weight:bold}
-.btn2{background:#21262d;border:1px solid #30363d;color:white;padding:7px 12px;border-radius:6px;cursor:pointer}
-.flex{display:flex;gap:12px;flex-wrap:wrap}
-.tabs{display:flex;gap:20px;border-bottom:1px solid #30363d;padding-bottom:8px;margin:14px 0;overflow:auto}
-.tabs span{cursor:pointer;white-space:nowrap;padding-bottom:6px}
-.tabs span.active{border-bottom:2px solid #f78166;font-weight:bold}
-.repo{border:1px solid #30363d;padding:12px;border-radius:8px;margin-bottom:10px;background:#0d1117}
-.file-row{display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #30363d;cursor:pointer}
-.file-row:hover{background:#161b22}
-.badge{background:#238636;padding:2px 8px;border-radius:20px;font-size:12px}
-.badge-red{background:#da3633;padding:2px 8px;border-radius:20px;font-size:12px}
-.commit{border-left:3px solid #238636;padding:10px;background:#0d1117;margin:8px 0;border-radius:0 6px 6px 0}
+.file{display:flex;justify-content:space-between;padding:11px;border-bottom:1px solid #21262d;cursor:pointer}
+.file:hover{background:#161b22}
+.badge{background:#238636;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.badge-red{background:#da3633;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.badge-blue{background:#1f6feb;padding:3px 10px;border-radius:20px;font-size:12px}
+.commit{border-left:3px solid #3fb950;background:#010409;padding:12px;margin:8px 0;border-radius:6px}
 .hidden{display:none}
-.profile-img{width:80px;height:80px;border-radius:50%;border:2px solid #30363d}
-@media(max-width:700px){header input{display:none}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{display:flex;gap:10px;margin-top:12px}
+.stat div{flex:1;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;text-align:center}
+.stat b{font-size:20px}
+.stat span{font-size:12px;color:#8b949e}
+.max-tag{background:linear-gradient(90deg,#f78166,#a371f7);color:white;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:1px}
+@media(max-width:850px){.wrap{flex-direction:column}.sidebar{width:100%}.hero h1{font-size:34px}.grid{grid-template-columns:1fr}.menu{display:none}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-<div class="logo">G</div>
-<input placeholder="🔍 Search - Repository, User, Code..." onkeyup="searchAll(this.value)">
-<span onclick="showPage('home')">Home</span>
-<span onclick="showPage('explore')">Explore</span>
-<span onclick="showPage('profile')">Profile</span>
-<span onclick="showPage('settings')">⚙️ Settings</span>
-<button class="green" onclick="showPage('login')">Sign In</button>
-<button onclick="showPage('signup')">Sign Up</button>
-</header>
-
-<div class="container">
-
-<!-- 1. LOGIN / SIGNUP -->
-<div id="page-login" class="hidden">
-<div class="card" style="max-width:400px;margin:auto;text-align:center">
-<h2>Sign in to MyHub</h2><p style="color:#8b949e">Asli GitHub Jaisa Login</p>
-<input id="loginUser" placeholder="Username ya Email">
-<input type="password" placeholder="Password">
-<button class="btn" style="width:100%" onclick="doLogin()">Sign In →</button>
-<p style="margin-top:10px">Naya Ho? <a onclick="showPage('signup')">Create Account</a></p>
-</div>
+<div class="top">
+<div class="logo">⬢</div>
+<div class="search">🔍 <input placeholder="Search or jump to... GitHub MAX" onkeyup="searchAll(this.value)"> <kbd>/</kbd></div>
+<div class="menu"><span onclick="go('home')">Home</span><span onclick="go('explore')">Explore</span><span onclick="go('market')">Marketplace</span><span onclick="go('copilot')">Copilot</span><span onclick="go('profile')">Profile</span></div>
+<button class="btn-w" onclick="go('login')">Sign in</button>
+<button class="btn-g" onclick="go('signup')">Sign up</button>
+<div class="avatar">D</div>
 </div>
 
-<div id="page-signup" class="hidden">
-<div class="card" style="max-width:450px;margin:auto">
-<h2 style="text-align:center">Create Your Account</h2>
-<input id="suName" placeholder="Full Name - Jaise Arun Kumar">
-<input id="suUser" placeholder="Username - Jaise arun123">
-<input id="suEmail" placeholder="Email">
-<input type="password" id="suPass" placeholder="Password - 8 Se Jyada">
-<label><input type="checkbox" style="width:auto"> I Agree Terms</label>
-<button class="btn" style="width:100%" onclick="doSignup()">Create Account</button>
-<p style="text-align:center;margin-top:10px">Pehle Se Hai? <a onclick="showPage('login')">Sign In</a></p>
-</div>
+<div class="hero" id="hero">
+<span class="max-tag">✦ GITHUB MAX • NEW VERSION</span>
+<h1>Let's build from here<br><span>GitHub Jaisa, Par Zyada MAX</span></h1>
+<p>Free Fire → Free Fire MAX Jaisa. GitHub → GitHub MAX. Same System, Same Design, Bas Graphics Aur Power Zyada.</p>
+<div class="hero-btns"><button class="btn-g" style="padding:12px 24px;font-size:16px" onclick="go('signup')">Start Building For Free →</button><button class="btn-w" style="padding:12px 20px" onclick="go('explore')">Explore Trending →</button></div>
+<div class="terminal"><div class="terminal-head"><div class="dot" style="background:#ff5f57"></div><div class="dot" style="background:#febc2e"></div><div class="dot" style="background:#28c840"></div><span style="margin-left:8px;color:#8b949e;font-size:12px">d-tech — zsh — GitHub MAX Terminal</span><span style="margin-left:auto;font-size:11px;background:#238636;padding:2px 8px;border-radius:10px">● LIVE</span></div><div class="terminal-body"><b>$</b> git clone https://github.com/d34_collab/portfolio.git<br><b>$</b> cd portfolio && npm start<br><i>✓ Cloning 100% • Build Success • Website LIVE 🚀</i><br><b>$</b> git commit -m <i>"GitHub MAX Ban Gaya - Sabko Lagega Asli GitHub Hai"</i></div></div>
 </div>
 
-<!-- 2. HOME / DASHBOARD -->
-<div id="page-home">
-<div class="flex">
-<div style="flex:1;min-width:280px">
-<div class="card"><h3>👤 <span id="userNameShow">Arun Kumar</span></h3><p style="color:#8b949e">@<span id="userIdShow">arun123</span> • Patna, Bihar</p><p>⭐ 45 Followers | 20 Following | 120 Contributions</p><button class="btn2" onclick="showPage('profile')">Edit Profile</button></div>
-<div class="card"><h3>Top Repositories</h3><div id="leftRepos"></div>
-<h4 style="margin-top:12px">+ Naya Repository</h4>
-<input id="newRepoName" placeholder="Repo Naam - meri-website">
-<input id="newRepoDesc" placeholder="Description">
-<select id="newRepoType"><option>Public - Sab Dekh Sakte</option><option>Private - Sirf Tum</option></select>
-<label><input type="checkbox" style="width:auto" checked> README.md Add Karo</label>
-<button class="btn" onclick="createRepo()">Create Repository</button>
-</div>
+<div class="wrap">
+
+<!-- LOGIN / SIGNUP -->
+<div id="p-login" class="hidden" style="width:100%"><div class="card" style="max-width:400px;margin:auto;text-align:center"><h2>Sign in to GitHub MAX</h2><p style="color:#8b949e;margin:8px 0">Welcome Back, Boss!</p><input id="liU" placeholder="Username or email"><input type="password" placeholder="Password"><button class="btn-g" style="width:100%;padding:11px" onclick="doLogin()">Sign in →</button><p style="margin-top:10px">New? <a onclick="go('signup')">Create account</a></p></div></div>
+<div id="p-signup" class="hidden" style="width:100%"><div class="card" style="max-width:450px;margin:auto"><h2 style="text-align:center">Create GitHub MAX Account</h2><input id="suN" placeholder="Full Name - D-Tech"><input id="suU" placeholder="Username - d34_collab"><input placeholder="Email"><input type="password" placeholder="Password"><button class="btn-g" style="width:100%;padding:11px" onclick="doSignup()">Create Account</button></div></div>
+
+<!-- HOME -->
+<div id="p-home" style="display:flex;gap:16px;width:100%;flex-wrap:wrap">
+<div class="sidebar">
+<div class="profile"><img src="https://via.placeholder.com/92"><h3 id="uName">D-Tech</h3><p style="color:#8b949e">@d34_collab • Patna, Bihar 🇮🇳</p><p style="font-size:13px;margin:8px 0">Full Stack Developer | Portfolio Maker | GitHub MAX Creator</p><p style="font-size:13px">⭐ 1.2k Followers • 350 Following</p><button class="btn-w" style="width:100%;margin-top:10px" onclick="go('profile')">Edit Profile</button></div>
+<div class="card"><h3>Top Repositories <span style="float:right" class="badge-blue">MAX</span></h3><div id="leftRepos"></div><h4 style="margin-top:14px">+ New Repository</h4><input id="nrN" placeholder="Repository Name"><input id="nrD" placeholder="Description"><select><option>Public - Sab Dekh Sakte</option><option>Private - Sirf Tum</option></select><label style="font-size:13px"><input type="checkbox" style="width:auto" checked> Add README.md</label><button class="btn-g" style="width:100%" onclick="newRepo()">Create Repository</button></div>
+<div class="card"><h3>🏆 Achievements</h3><p>🥇 Pull Shark • ⭐ Starstruck • 🚀 Quickdraw</p><p style="color:#8b949e;font-size:12px">GitHub MAX Pro Member</p></div>
 </div>
 
-<div style="flex:2;min-width:300px">
-<div class="card"><h3>Home - Tumhara Dashboard</h3><p style="color:#8b949e">Yaha Sab Kuch Dikhega Jo Tum Follow Karte Ho</p></div>
+<div class="main">
+<div class="card"><h2>Home Dashboard - GitHub MAX</h2><p style="color:#8b949e">Tumhara Saara Kaam, Ek Jagah. Jaise Asli GitHub Me.</p></div>
 <div class="card"><h3>All Repositories</h3><div id="allRepos"></div></div>
-<div class="card"><h3>📊 Contribution Graph</h3><p style="font-size:26px">🟩🟩🟩⬜🟩🟩⬜🟩🟩🟩🟩🟩⬜🟩🟩🟩🟩🟩⬜🟩🟩🟩</p><p>Is Hafte: 25 Contributions</p></div>
-</div>
-</div>
-</div>
-
-<!-- 3. REPO DETAIL -->
-<div id="page-repo" class="hidden">
-<button class="btn2" onclick="showPage('home')">← Back</button>
-<div class="card"><h2 id="repoTitle">meri-website</h2><p id="repoDesc2" style="color:#8b949e"></p><p><span class="badge">Public</span> ⭐ <span id="starCount">12</span> Stars • 👁️ 45 Watching • 🍴 5 Forks</p><div class="flex" style="margin-top:10px"><button class="btn" onclick="starRepo()">⭐ Star</button><button class="btn2" onclick="forkRepo()">🍴 Fork</button><button class="btn2" onclick="alert('Code Copy: https://myhub.com/arun123/meri-website.git')">📥 Code ↓</button></div></div>
-<div class="tabs"><span class="active" onclick="repoTab('code',this)">Code</span><span onclick="repoTab('issues',this)">Issues</span><span onclick="repoTab('pull',this)">Pull Requests</span><span onclick="repoTab('commits',this)">Commits</span><span onclick="repoTab('settings',this)">Settings</span></div>
-
-<div id="tab-code">
-<div class="card"><b>Files - Repository Ke Andar</b><div id="fileList"></div>
-<h4 style="margin-top:15px">+ Nayi File Banao</h4><input id="newFileName" placeholder="File Naam - jaise about.html"><textarea id="newFileCode" placeholder="Yaha Code Likho..."></textarea><button class="btn" onclick="addFile()">Add File + Commit</button></div>
-<div class="card"><h4>README.md</h4><p id="readmeShow">Ye Meri Pehli Website Hai. HTML CSS Se Bani Hai. Patna Se Arun Ne Banaya Hai.</p><textarea id="readmeEdit" class="hidden"></textarea><button class="btn2" onclick="editReadme()">✏️ Edit README</button></div>
-</div>
-
-<div id="tab-issues" class="hidden">
-<div class="card"><h3>Issues - Galti Ya Suggestion</h3><div id="issueList"></div><input id="issueTitle" placeholder="Issue Ka Title - Jaise Button Kaam Nahi Kar Raha"><textarea id="issueDesc" placeholder="Puri Baat Likho..."></textarea><button class="btn" onclick="addIssue()">New Issue Banao</button></div>
-</div>
-
-<div id="tab-pull" class="hidden">
-<div class="card"><h3>Pull Requests</h3><div id="prList"></div><input id="prTitle" placeholder="PR Title - Maine Code Sudhara Hai"><button class="btn" onclick="addPR()">Create Pull Request</button></div>
-</div>
-
-<div id="tab-commits" class="hidden"><div class="card"><h3>Commits - History</h3><div id="commitList"></div></div></div>
-
-<div id="tab-settings" class="hidden">
-<div class="card"><h3>Repository Settings</h3><p>Repository Ka Naam Badlo</p><input id="settingRepoName" value="meri-website"><p>Pages Setting - Website Live Karo</p><select><option>Branch: main</option><option>Branch: master</option></select><button class="btn" onclick="alert('Website LIVE Ho Gayi! Link: https://arun123.myhub.io/meri-website')">Deploy Website - Pages ON</button><br><br><button class="btn2" style="background:#da3633;color:white" onclick="alert('Repository Delete Ho Gaya!')">Danger Zone - Delete Repository</button></div>
+<div class="card"><h3>📊 Contribution Graph - MAX Graphics</h3><p style="font-size:24px;letter-spacing:2px">🟩🟩🟩⬜🟩🟩🟩🟩🟩⬜🟩🟩🟩🟩🟩⬜🟩🟩🟩🟩🟩🟩⬜🟩</p><p style="color:#8b949e">1,482 contributions in the last year</p><div class="stat"><div><b>52</b><br><span>Repositories</span></div><div><b>1.4k</b><br><span>Commits</span></div><div><b>890</b><br><span>Stars</span></div><div><b>120</b><br><span>Forks</span></div></div></div>
 </div>
 </div>
 
-<!-- 4. EXPLORE -->
-<div id="page-explore" class="hidden">
-<div class="card"><h2>Explore - Trending Repositories</h2><p>Duniya Me Sabse Jyada Chal Raha Hai</p></div>
-<div class="card"><h3>🔥 Trending Today</h3><div class="repo"><b>facebook / react</b><p>JavaScript Library - Website Banane Ke Liye</p><p>⭐ 230k Stars</p></div><div class="repo"><b>torvalds / linux</b><p>Linux Ka Asli Code</p><p>⭐ 180k Stars</p></div><div class="repo"><b>arun123 / meri-website</b><p>Patna Ka Ladka - Pehli Website</p><p>⭐ 12 Stars</p></div></div>
+<!-- REPO -->
+<div id="p-repo" class="hidden" style="width:100%">
+<button class="btn-w" onclick="go('home')">← Back</button>
+<div class="card"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><div><h2 id="rT">portfolio</h2><p id="rD" style="color:#8b949e"></p></div><span class="max-tag">GITHUB MAX VERIFIED ✓</span></div><p style="margin-top:10px"><span class="badge">Public</span> ⭐ <span id="rS">890</span> Stars • 🍴 120 Forks • 👁️ 2.5k Watching • 📜 MIT License • 🟢 MAX Active</p><div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn-g" onclick="doStar()">⭐ Star</button><button class="btn-w" onclick="doFork()">🍴 Fork</button><button class="btn-w" onclick="alert('Clone: https://github.com/d34_collab/portfolio.git')">📥 Code ↓</button><button class="btn-w" onclick="alert('LIVE: https://d34_collab.github.io')">🚀 Live Website</button><button class="btn-w" onclick="alert('GitHub MAX Copilot ON - AI Code Likhega')">🤖 Copilot</button></div></div>
+<div class="tabs"><span class="active" onclick="rtab('code',this)">📄 Code</span><span onclick="rtab('issues',this)">⚠️ Issues</span><span onclick="rtab('pull',this)">🔀 Pull Requests</span><span onclick="rtab('actions',this)">▶️ Actions</span><span onclick="rtab('projects',this)">📋 Projects</span><span onclick="rtab('commits',this)">📜 Commits</span><span onclick="rtab('settings',this)">⚙️ Settings</span></div>
+<div id="t-code"><div class="card"><b>Files - Repository Ke Andar</b><div id="files"></div><h4 style="margin-top:14px">+ New File Banao</h4><input id="fN" placeholder="File Name - about.html"><textarea id="fC" placeholder="Code Likho..."></textarea><button class="btn-g" onclick="addFile()">Add File + Commit</button></div><div class="card"><h3>README.md</h3><p id="readmeT">Mera Portfolio - GitHub MAX Version. D-Tech Patna Se. High Graphics Design.</p><button class="btn-w" onclick="editReadme()">✏️ Edit README</button></div></div>
+<div id="t-issues" class="hidden"><div class="card"><h3>Issues</h3><div id="issues"></div><input id="iT" placeholder="Issue Title"><textarea id="iD" placeholder="Detail"></textarea><button class="btn-g" onclick="addIssue()">New Issue</button></div></div>
+<div id="t-pull" class="hidden"><div class="card"><h3>Pull Requests</h3><div id="prs"></div><input id="pT" placeholder="PR Title"><button class="btn-g" onclick="addPR()">Create PR</button></div></div>
+<div id="t-actions" class="hidden"><div class="card"><h3>GitHub MAX Actions</h3><p>✅ Build - Success • 1 min ago</p><p>✅ Deploy Pages - Success</p><p>🟢 Website LIVE - GitHub MAX Server</p><button class="btn-g" onclick="alert('Re-Run Ho Raha Hai...')">Re-Run Workflow</button></div></div>
+<div id="t-projects" class="hidden"><div class="card"><h3>Projects - Kanban Board</h3><div class="grid"><div class="card"><b>📝 To Do</b><p>New Design Banana</p></div><div class="card"><b>🔥 In Progress</b><p>GitHub MAX Clone</p></div><div class="card"><b>✅ Done</b><p>Portfolio Live</p></div><div class="card"><b>🚀 Deployed</b><p>Website LIVE</p></div></div></div></div>
+<div id="t-commits" class="hidden"><div class="card"><h3>Commits History</h3><div id="commits"></div></div></div>
+<div id="t-settings" class="hidden"><div class="card"><h3>Repository Settings - Full System</h3><p>Pages - Website Live</p><select><option>Branch: main</option><option>Branch: master</option></select><button class="btn-g" onclick="alert('Pages ON - Website LIVE!')">Deploy Pages</button><br><br><p>Visibility</p><select><option>Public</option><option>Private</option></select><br><br><p style="color:#f85149">Danger Zone</p><button class="btn-w" style="background:#da3633;border:none" onclick="alert('Delete Ho Gaya!')">Delete Repository</button></div></div>
 </div>
 
-<!-- 5. PROFILE -->
-<div id="page-profile" class="hidden">
-<div class="card"><div class="flex"><img class="profile-img" src="https://via.placeholder.com/80"><div><h2 id="profileName">Arun Kumar</h2><p>@arun123</p><input id="bioInput" value="Main Website Banata Hu - Patna, Bihar Se"><button class="btn2" onclick="saveProfile()">Save Profile</button></div></div></div>
-<div class="card"><h3>Repositories - <span id="profileRepoCount">6</span></h3><div id="profileRepos"></div></div>
-</div>
-
-<!-- 6. SETTINGS -->
-<div id="page-settings" class="hidden">
-<div class="card"><h2>Settings - Pura Account</h2><p>Profile Setting</p><input placeholder="Naam Badlo"><p>Password Setting</p><input type="password" placeholder="Naya Password"><p>Email Notification</p><select><option>All Notification ON</option><option>Only Important</option><option>OFF</option></select><p>Theme</p><select><option>Dark - GitHub Jaisa Kaala</option><option>Light - Safed</option></select><p>Two Factor - Suraksha</p><select><option>ON - OTP Se</option><option>OFF</option></select><button class="btn" onclick="alert('Settings Save Ho Gayi Bhai!')">Save All Settings</button></div>
-</div>
+<!-- OTHER PAGES -->
+<div id="p-explore" class="hidden" style="width:100%"><div class="card"><h2>🔥 Explore - Trending In GitHub MAX</h2></div><div class="grid"><div class="repo"><b>facebook / react</b><p>JavaScript Library</p><p>⭐ 230k</p></div><div class="repo"><b>d34_collab / portfolio-max</b><p>Patna Ka Best Portfolio - MAX Version</p><p>⭐ 890 • 🔥 Trending #1 In India</p></div><div class="repo"><b>torvalds / linux</b><p>Linux Kernel</p><p>⭐ 180k</p></div><div class="repo"><b>microsoft / vscode</b><p>Code Editor</p><p>⭐ 165k</p></div></div></div>
+<div id="p-market" class="hidden" style="width:100%"><div class="card"><h2>Marketplace - GitHub MAX Apps</h2></div><div class="grid"><div class="card"><h3>🤖 Copilot MAX</h3><p>AI Se Code Likho - 2x Fast</p><button class="btn-g">Try Free</button></div><div class="card"><h3>🛡️ Security MAX</h3><p>Virus + Hack Check</p><button class="btn-w">Install</button></div></div></div>
+<div id="p-copilot" class="hidden" style="width:100%"><div class="card"><h2>🤖 GitHub MAX Copilot - AI</h2><p>AI Tumhara Code Khud Likhega</p><textarea placeholder="Bolo AI Ko - 'Mere Liye Portfolio Bana Do'"></textarea><button class="btn-g" onclick="alert('AI Code Bana Raha Hai... 5 Sec Me Ready!')">Generate Code With AI ✨</button></div></div>
+<div id="p-profile" class="hidden" style="width:100%"><div class="card"><div style="display:flex;gap:16px"><img src="https://via.placeholder.com/90" style="width:90px;height:90px;border-radius:50%"><div><h2>D-Tech - GitHub MAX Creator</h2><p>@d34_collab</p><input value="Full Stack Developer - Patna | GitHub MAX Banane Wala"><button class="btn-g" onclick="alert('Profile Save Ho Gaya!')">Save Profile</button></div></div></div><div class="card"><h3>Repositories</h3><div id="profileRepos"></div></div></div>
 
 </div>
 
 <script>
 let repos=[
-{name:"meri-website",desc:"Meri Pehli Website - HTML CSS",lang:"HTML",stars:12,files:[{n:"index.html",c:"<h1>Hello</h1>"},{n:"style.css",c:"body{color:black}"},{n:"script.js",c:"alert('hi')"}]},
-{name:"myhub-clone",desc:"GitHub Jaisa Website",lang:"JavaScript",stars:25,files:[{n:"index.html",c:"clone"}]},
-{name:"game-zone",desc:"Car Wala Game",lang:"JavaScript",stars:30,files:[{n:"game.js",c:"game code"}]},
+{name:"portfolio-max",desc:"Mera Portfolio - GitHub MAX Version - High Graphics",lang:"HTML",stars:890,color:"#e34c26",files:[{n:"index.html",c:"max"},{n:"style.css",c:"design"},{n:"script.js",c:"logic"}]},
+{name:"github-max-clone",desc:"GitHub Jaisa Par MAX Wala - Full System",lang:"JavaScript",stars:650,color:"#f1e05a",files:[{n:"index.html",c:"clone"}]},
+{name:"d-tech-app-max",desc:"D-Tech Ka App - MAX Version",lang:"CSS",stars:320,color:"#563d7c",files:[{n:"app.js",c:"app"}]},
+{name:"game-zone-max",desc:"Car Wala Game - MAX Graphics",lang:"JavaScript",stars:480,color:"#f1e05a",files:[{n:"game.js",c:"game"}]},
 ];
-let issues=[{t:"Button Kaam Nahi Kar Raha",d:"Mobile me button dabane pe kuch nahi hota",by:"rahul123"}];
-let prs=[{t:"Maine Design Sudhara Hai",by:"priya99"}];
-let commits=[{m:"Pehla Commit - Website Banayi",t:"2 din pehle"},{m:"CSS Sudhara - Rang Badla",t:"1 din pehle"}];
-let currentRepo=repos[0];
-
-function showPage(p){
-["login","signup","home","repo","explore","profile","settings"].forEach(x=>document.getElementById("page-"+x).classList.add("hidden"));
-document.getElementById("page-"+p).classList.remove("hidden");
-window.scrollTo(0,0);
-}
-function doLogin(){let u=document.getElementById("loginUser").value||"arun123";document.getElementById("userNameShow").innerText=u;document.getElementById("userIdShow").innerText=u;alert("Welcome Bhai! Login Ho Gaya - "+u);showPage('home');}
-function doSignup(){let u=document.getElementById("suUser").value||"arun123";let n=document.getElementById("suName").value||"Arun Kumar";document.getElementById("userNameShow").innerText=n;document.getElementById("userIdShow").innerText=u;document.getElementById("profileName").innerText=n;alert("Account Ban Gaya Bhai! Welcome "+n);showPage('home');}
-function render(){
-let left="",all="",prof="";
-repos.forEach((r,i)=>{
-let h=`<div class="repo"><b style="color:#58a6ff;cursor:pointer" onclick="openRepo(${i})">${r.name}</b><p style="color:#8b949e">${r.desc}</p><p>⭐ ${r.stars} • ${r.lang}</p></div>`;
-all+=h; if(i<3) left+=h; prof+=h;
-});
-document.getElementById("leftRepos").innerHTML=left;
-document.getElementById("allRepos").innerHTML=all;
-document.getElementById("profileRepos").innerHTML=prof;
-document.getElementById("profileRepoCount").innerText=repos.length;
-}
-function openRepo(i){currentRepo=repos[i];document.getElementById("repoTitle").innerText=currentRepo.name;document.getElementById("repoDesc2").innerText=currentRepo.desc;document.getElementById("starCount").innerText=currentRepo.stars;document.getElementById("settingRepoName").value=currentRepo.name;renderFiles();renderIssues();renderPR();renderCommits();showPage('repo');}
-function renderFiles(){let h="";currentRepo.files.forEach((f,i)=>{h+=`<div class="file-row" onclick="alert('File Khuli: ${f.n}\\nCode:\\n${f.c}')"><span>📄 ${f.n}</span><span style="color:#8b949e">Edit ✏️</span></div>`});document.getElementById("fileList").innerHTML=h;}
-function createRepo(){let n=document.getElementById("newRepoName").value;let d=document.getElementById("newRepoDesc").value;if(!n){alert("Naam Daalo Bhai!");return;}repos.unshift({name:n,desc:d||"Naya Repo",lang:"HTML",stars:0,files:[{n:"README.md",c:"Naya Repo"}]});render();alert("Repository Ban Gaya - "+n);document.getElementById("newRepoName").value="";}
-function addFile(){let n=document.getElementById("newFileName").value;let c=document.getElementById("newFileCode").value;if(!n){alert("File Ka Naam Daalo");return;}currentRepo.files.push({n,c});commits.unshift({m:"Nayi File Add Ki - "+n,t:"Abhi"});renderFiles();renderCommits();alert("File Add + Commit Ho Gaya!");}
-function starRepo(){currentRepo.stars++;document.getElementById("starCount").innerText=currentRepo.stars;render();alert("Star De Diya! ⭐");}
-function forkRepo(){repos.unshift({name:currentRepo.name+"-fork",desc:"Fork Kiya Hua - "+currentRepo.desc,lang:currentRepo.lang,stars:0,files:currentRepo.files});render();alert("Fork Ho Gaya! Ab Ye Tumhara Hai");}
-function renderIssues(){let h="";issues.forEach(i=>h+=`<div class="repo"><b>⚠️ ${i.t}</b><p>${i.d}</p><p>By @${i.by} • <span class="badge-red">Open</span></p></div>`);document.getElementById("issueList").innerHTML=h;}
-function addIssue(){let t=document.getElementById("issueTitle").value;let d=document.getElementById("issueDesc").value;if(!t){alert("Title Daalo");return;}issues.unshift({t,d,by:"arun123"});renderIssues();alert("Issue Ban Gaya!");}
-function renderPR(){let h="";prs.forEach(p=>h+=`<div class="repo"><b>🔀 ${p.t}</b><p>By @${p.by} • <span class="badge">Open</span></p><button class="btn2" onclick="alert('Merge Ho Gaya! Code Jud Gaya')">Merge</button></div>`);document.getElementById("prList").innerHTML=h;}
-function addPR(){let t=document.getElementById("prTitle").value;if(!t){alert("Title Daalo");return;}prs.unshift({t,by:"arun123"});renderPR();alert("Pull Request Ban Gaya!");}
-function renderCommits(){let h="";commits.forEach(c=>h+=`<div class="commit"><b>${c.m}</b><p style="color:#8b949e">${c.t} • by @arun123</p></div>`);document.getElementById("commitList").innerHTML=h;}
-function repoTab(tab,el){document.querySelectorAll(".tabs span").forEach(s=>s.classList.remove("active"));el.classList.add("active");["code","issues","pull","commits","settings"].forEach(t=>document.getElementById("tab-"+t).classList.add("hidden"));document.getElementById("tab-"+tab).classList.remove("hidden");}
-function editReadme(){let e=document.getElementById("readmeEdit");if(e.classList.contains("hidden")){e.classList.remove("hidden");e.value=document.getElementById("readmeShow").innerText;}else{e.classList.add("hidden");document.getElementById("readmeShow").innerText=e.value;alert("README Save Ho Gaya!");}}
-function saveProfile(){document.getElementById("profileName").innerText=document.getElementById("userNameShow").innerText;alert("Profile Save Ho Gaya!");}
-function searchAll(q){if(!q) {render();return;}let f=repos.filter(r=>r.name.toLowerCase().includes(q.toLowerCase()));let h="";f.forEach(r=>h+=`<div class="repo"><b>${r.name}</b><p>${r.desc}</p></div>`);document.getElementById("allRepos").innerHTML=h||"<p>Kuch Nahi Mila</p>";}
-render();renderIssues();renderPR();renderCommits();renderFiles();
-</script>
-</body>
-                                                     </html>
+let issues=[{t:"Button Mobile Me Slow Hai",d:"Fix Karo MAX Me",by:"rahul"}];
+let prs=[{t:"Maine MAX Design Diya Hai",by:"priya"}];
+let commits=[{m:"GitHub MAX Launch Kiya",t:"Abhi"},{m:"High Graphics Add Kiya",t:"1 din pehle"},{m:"Portfolio Live Kiya",t:"2 din pehle"}];
+let cur=repos[0];
+function go(p){["login","signup","home","repo","explore","market","copilot","profile"].forEach(x=>document.getElementById("p-"+x).classList.add("hidden"));document.getElementById("hero").style.display=(p=="home"?"block":"none");let el=document.getElementById("p-"+p);el.classList.remove("hidden");if(p=="home")el.style.display="flex";else el.style.display="block";window.scrollTo(0,0);}
+function render(){let l="",a="",pr="";repos.forEach((r,i)=>{let h=`<div class="repo"><b onclick="openRepo(${i})">${r.name} <span class="max-tag" style="font-size:9px">MAX</span></b><p>${r.desc}</p><div class="meta"><span><i class="dotlang" style="background:${r.color}"></i> ${r.lang}</span><span>⭐ ${r.stars}</span><span>🍴 45</span><span>Updated 2h ago</span></div></div>`;a+=h;if(i<3)l+=h;pr+=h});document.getElementById("leftRepos").innerHTML=l;document.getElementById("allRepos").innerHTML=a;document.getElementById("profileRepos").innerHTML=pr;}
+function openRepo(i){cur=repos[i];document.getElementById("rT").innerText=cur.name;document.getElementById("rD").innerText=cur.desc;document.getElementById("rS").innerText=cur.stars;renderFiles();renderIssues();renderPR();renderCommits();go('repo');}
+function renderFiles(){let h="";cur.files.forEach(f=>h+=`<div class="file" onclick="alert('File Khuli: ${f.n}')"><span>📄 ${f.n}</span><span style="color:#8b949e">Edit • Delete</span></div>`);document.getElementById("files").innerHTML=h;}
+function newRepo(){let n=document.getElementById("nrN").value;let d=document.getElementById("nrD").value;if(!n)return alert("Naam Daalo Bhai!");repos.unshift({name:n,desc:d||"Naya MAX Repo",lang:"HTML",stars:0,color:"#e34c26",files:[{n:"README.md",c:"hi"}]});render();alert("MAX Repository Ban Gaya - "+n);}
+function addFile(){let n=document.getElementById("fN").value;if(!n)return alert("File Naam Daalo");cur.files.push({n,c:"code"});commits.unshift({m:"New File - "+n,t:"Abhi"});renderFiles();renderCommits();alert("File + Commit Ho Gaya!");}
+function doStar(){cur.stars++;document.getElementById("rS").innerText=cur.stars;render();alert("Star De Diya ⭐ MAX Star!");}
+function doFork(){repos.unshift({name:cur.name+"-fork-max",desc:"Fork MAX - "+cur.desc,lang:cur.lang,stars:0,color:cur.color,files:cur.files});render();alert("Fork MAX Ho Gaya!");}
+function renderIssues(){let h="";issues.forEach(i=>h+=`<div class="repo"><b>⚠️ ${i.t}</b><p>${i.d} • @${i.by}</p><span class="badge-red">Open</span></div>`);document.getElementById("issues").innerHTML=h;}
+function addIssue(){let t=document.getElementById("iT").value;if(!t)return alert("Title Daalo");issues.unshift({t,d:document.getElementById("iD").value,by:"d34_collab"});renderIssues();alert("Issue Ban Gaya!");}
+function renderPR(){let h="";prs.forEach(p=>h+=`<div class="repo"><b>🔀 ${p.t}</b><p>By @${p.by}</p><button class="btn-w" onclick="alert('Merge Ho Gaya! MAX Merge!')">Merge</button></div>`);document.getElementById("prs").innerHTML=h;}
+function addPR(){let t=document.getElementById("pT").value;if(!t)return alert("Title Daalo");prs.unshift({t,by:"d34_collab"});renderPR();}
+function renderCommits(){let h="";commits.forEach(c=>h+=`<div class="commit"><b>${c.m}</b><p style="color:#8b949e">${c.t} • @d34_collab</p></div>`);document.getElementById("commits").innerHTML=h;}
+function rtab(t,el){document.que
